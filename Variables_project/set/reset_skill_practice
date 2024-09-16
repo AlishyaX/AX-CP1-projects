@@ -1,10 +1,11 @@
 #Alishya Xavier, SkillPractice: Setting, Resetting. and Resetting
 
-fac_and_staff = int(32)
-students_awarded = int((100-15)*2+15)
+fac_and_staff = 32
+students_awarded = 100
 
-students_awarded = int(99)
-fac_and_staff = int(29)
-school_board = int(1)
-table_seats = ((students_awarded + fac_and_staff + school_board)/12)
+students_awarded = students_awarded-1
+students_guests = students_awarded*2+15
+fac_and_staff = fac_and_staff-3
+school_board = 1
+table_seats = ((students_awarded + fac_and_staff + school_board + students_guests)/12)
 print(round(table_seats))
