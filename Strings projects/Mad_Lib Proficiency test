@@ -1,0 +1,13 @@
+# Alishya xavier, Proficiency test\madlib
+
+name = input('Type in a name: ')
+noun1 = input('Type in a noun: ')
+adj1 = input('Type in an adjective: ')
+verb1 = input('Type in a verb(in it\'s base tense): ')
+noun2 = input('Type in another noun: ')
+
+print('\nOne day',name,'decided to go on an adventure through an abondoned cave.'
+'\n',name,'was scared to go in by herself so she brought her',noun1,'with her.'
+'\nHer',adj1,noun1,'ended up',verb1 + 'ing','on her back, causing her to trip and fall.'
+'\nThis then made her go unconscious but then when she woke up, she found a,',noun2,'also',verb1 +'ing','on her.'
+'\nThen in the end she decided to take the',noun1,'and the',noun2,'home and lived hapilly ever after.')
