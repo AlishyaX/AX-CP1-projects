@@ -1,0 +1,51 @@
+#Alishya Xavier, Proficiency test Booleans
+
+score = 0
+
+question1 = input("What is the capital of Austria:")
+correct_answer1 = ('Vienna')
+
+if question1 == correct_answer1:
+    score +=1
+    print('That is correct!')
+else:
+    print('That is incorrect. You did not recieve points.')
+
+question2 = input("What is the capital of United Kingdom:")
+correct_answer2 = ('London')
+
+if question2 == correct_answer2:
+    score +=1
+    print('That is correct!')
+else:
+    print('That is incorrect. You did not recieve points.')
+
+question3 = input("What is the capital of Belgium:")
+correct_answer3 = ('Brussels')
+
+if question3 == correct_answer3:
+    score +=1
+    print('That is correct!')
+else:
+    print('That is incorrect. You did not recieve points.')
+
+question4 = input("What is the capital of Poland:")
+correct_answer4 = ('Warsaw')
+
+if question4 == correct_answer4:
+    score +=1
+    print('That is correct!')
+else:
+    print('That is incorrect. You did not recieve points.')
+
+question5 = input("What is the capital of Kosova:")
+correct_answer5 = ('Pristina')
+
+if question5 == correct_answer5:
+    score +=1
+    print('That is correct!')
+else:
+    print('That is incorrect. You did not recieve points.')
+
+
+print('Good job, you have completed the quiz. your score = ',score,'')
