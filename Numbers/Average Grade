@@ -1,0 +1,13 @@
+#Alishya Xavier, SkillPractice: Average Grade
+
+math = float(input('What is your grade in math?'))
+english = float(input('What is your grade in english?'))
+geo = float(input('What is your grade in geography?'))
+draw = float(input('What is your grade in drawing?'))
+cs = float(input('What is your grade in computer science?'))
+chem = float(input('What is your grade in chemistry?'))
+advisory = float(input('What is your grade in advisory?'))
+
+average = round((math + english + geo + draw + cs + chem + advisory)/7)
+
+print('Your average grade is',average)
