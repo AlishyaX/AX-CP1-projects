@@ -1,0 +1,3 @@
+#Alishya Xavier, Proficiency Test: Simple Calculator
+
+user = float(input('Type in what you what calculated:'))
