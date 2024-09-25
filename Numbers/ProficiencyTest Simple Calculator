@@ -5,15 +5,15 @@ value1 = float(input('What is the first value?'))
 value2 = float(input('What is the second value?'))
 
 if user == 'addition':
-    print(value1 + value2)
+    int(print(value1 + value2))
 elif user == 'subtraction':
-    print(value1 - value2)
+    int(print(value1 - value2))
 elif user == 'multiplication':
-    print(value1*value2)
+    int(print(value1*value2))
 elif user == 'division':
-    print(round(value1/value2))
+    int(print(round(value1/value2)))
 elif user == 'exponents':
-    print(value1**value2)
+    int(print(value1**value2))
 elif user == 'modulo':
-    print(value1%value2)
+    int(print(value1%value2))
 
