@@ -1,0 +1,16 @@
+# Alishya Xavier, ProficiencyTest Personal Information Converter
+
+print('This is a survey')
+name = input('What is your name?')
+age = input('What is your age?')
+height = input('What is your height in meters?')
+number = input('What is your favorite number?')
+
+age2 = int(age)
+height2 = float(height)
+number2 = int(number)
+
+print(name)
+print(age, age2)
+print(height, height2)
+print(number, number2)
