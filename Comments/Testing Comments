@@ -1,0 +1,13 @@
+# Alishya Xavier, Comment Challenge
+
+#-------------------------------------------------------------------------------
+# This is the comment challenge 
+# Here I made a code that runs a question, which is then answered by the user.
+# Then it prints hello and then the name inputed.
+# Date: 10/1/24
+#-------------------------------------------------------------------------------
+
+name = input("What is your name?")# This line of code asks the user what their name is and savces it into the variable name.
+print("hello", name)# This line of code takes the value in name and prints it with hello in front of it.
+
+
