@@ -1,0 +1,6 @@
+# Alishya Xavier, Find the bug 1
+
+def calculate_area(length, width):
+    return(length * width)
+
+calculate_area(5, 4)
