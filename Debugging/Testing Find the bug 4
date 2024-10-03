@@ -1,4 +1,4 @@
 #Alishya Xavier, Find the Bug 4
 
-my_list = [1]
-print(my_list[0])
+my_list = [1,3]
+print(my_list[1])

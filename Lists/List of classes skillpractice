@@ -1,0 +1,12 @@
+#Alishya Xavier, skill Practice: List of classes
+
+classes = ['Math', 'Chemistry', 'Geography', 'Drawing', 'Computer Science','Advisory', 'English']
+
+print(classes)
+print(classes[:1])
+print(classes[1:2])
+print(classes[2:3])
+print(classes[3:4])
+print(classes[4:5])
+print(classes[5:6])
+print(classes[6:7])

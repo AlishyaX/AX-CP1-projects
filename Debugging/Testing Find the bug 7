@@ -1,5 +1,6 @@
 #Alishya Xavier, Find the Bug 7
 
+
 def sum_even_numbers(numbers):
     sum = 0
     for num in numbers:
@@ -8,3 +9,5 @@ def sum_even_numbers(numbers):
           else:
               return 0
     return sum
+
+sum_even_numbers(3)

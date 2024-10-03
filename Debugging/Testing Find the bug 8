@@ -1,0 +1,9 @@
+#Alishya Xavier, Find the bug 8
+
+def add_to_list(item, my_list=[]):
+
+     my_list.append(item)
+
+     return my_list
+
+add_to_list('bob')
