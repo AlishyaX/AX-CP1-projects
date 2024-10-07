@@ -1,0 +1,82 @@
+#Alishya Xavier, ProfiencyTest: What is happening?
+
+# Here is the code for a bank account management system
+class BankAccount:
+# Here is the first function that puts the account number equal to your account number and sets it to start with 0
+    def __init__(self, account_number, balance=0):
+        self.account_number = account_number
+        self.balance = balance
+# Here is the next function that adds the amount to your balence and returns it true if when amount bigger than 0
+    def deposit(self, amount):
+# This is the first conditional that adds the amount earned if amount is > 0 or else it is false.
+        if amount > 0:
+            self.balance += amount
+            return True
+        return False
+# Here is the next function that saves two parameters and uses them in itself to subtract an amount
+    def withdraw(self, amount):
+# Here is a conditional that takes money out of your balance if the amount is greater than 0 and less than or equal to your own balance.
+        if 0 < amount <= self.balance:
+            self.balance -= amount
+            return True
+        return False
+# Here is another function that has one parameter used to get the balance and return it
+    def get_balance(self):
+        return self.balance
+# Here is another function that creates an account and returns the information.
+def create_account():
+    account_number = input("Enter account number: ")
+    initial_balance = float(input("Enter initial balance: "))
+    return BankAccount(account_number, initial_balance)
+# Here is a function that is the main part of the whole program
+# It takes imput from the user on what they would like to do with their bank account
+def main():
+    accounts = {}
+# This while conditional makes the for conditional and variables work while it is true
+    while True:
+        print("\n1. Create Account")
+        print("2. Deposit")
+        print("3. Withdraw")
+        print("4. Check Balance")
+        print("5. Exit")
+        
+        choice = input("Enter your choice (1-5): ")
+# This conditional takes in the user's input and puts it in its corresponding place
+# Then it does the appropriate changes and prints and output doing what the user asked        
+        if choice == '1':
+            account = create_account()
+            accounts[account.account_number] = account
+            print(f"Account {account.account_number} created successfully!")
+        
+        elif choice in ['2', '3', '4']:
+            account_number = input("Enter account number: ")
+# Here is a conditional in another conditional that runs another conditional inside it which then runs another one too
+# These conditionals then in the end print what was asked or if there is no account or some problem            
+            if account_number in accounts:
+                account = accounts[account_number]
+                if choice == '2':
+                    amount = float(input("Enter deposit amount: "))
+                    if account.deposit(amount):
+                        print(f"Deposited ${amount:.2f} successfully!")
+                    else:
+                        print("Invalid deposit amount.")
+                elif choice == '3':
+                    amount = float(input("Enter withdrawal amount: "))
+                    if account.withdraw(amount):
+                        print(f"Withdrawn ${amount:.2f} successfully!")
+                    else:
+                        print("Invalid withdrawal amount or insufficient funds.")
+                else:
+                    print(f"Current balance: ${account.get_balance():.2f}")
+            else:
+                print("Account not found.")
+        
+        elif choice == '5':
+            print("Thank you for using our banking system. Goodbye!")
+            break
+        
+        else:
+            print("Invalid choice. Please try again.")
+# This last conditional sees if __name__ is the same as "__main__" and if it is then it will run the main() function
+if __name__ == "__main__":
+    main()
