@@ -1,0 +1,7 @@
+# Alishya Xavier, Skill pracatice password validator
+
+password = input('Type in your password: ')
+i = 0
+while i < 1:
+    if len(password) == 8 and password 
+        
