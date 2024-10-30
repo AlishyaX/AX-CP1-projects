@@ -1,0 +1,8 @@
+# Alishya Xavier, SkillPractice: Count up and down
+
+for i in range(0, 21):
+    print(i)
+
+for i in range(21, 0):
+#   print(reversed(range(21)))
+
