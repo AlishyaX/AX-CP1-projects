@@ -1,13 +1,14 @@
 #Alishya Xavier, ProficiencyTest: Tic-Tac-Toe
-
-game = [[1, 1, 1],
-         [0, 2, 0],
-         [2, 2, 0],]
-
-for col in range(len(game)):
-
+import itertools
 
 def win(current_game):
+
+    def all_same(l):
+        if l.count(l[0]) == len(l) and l[0] != 0:
+            return True
+        else:
+            return False
+        
     # Horizontal
     for row in game:
         print(row)
@@ -18,20 +19,28 @@ def win(current_game):
     diags = []
     for col, row in enumerate(reversed(range(len(game)))):
         diags.append(game[row][col])
-    if diags.count(diags[0]) == len(diags) and diags[0] != 0:
-        print(f"Player {diags[0]} is the winner diagonally!")
+    if all_same(diags):
+        print(f"Player {diags[0]} is the winner diagonally! (/)")
+        return True
 
     diags = []
     for ix in range(len(game)):
         diags.append(game[ix][ix])
-    if diags.count(diags[0]) == len(diags) and diags[0] != 0:
-        print(f"Player {diags[0]} is the winner diagonally!")
+    if all_same(diags):
+        print(f"Player {diags[0]} is the winner diagonally! (\\)")
+        return True
         
-        
-        
+    #vertical
+    for col in range(len(game)):
+        check = []
+
         for row in game:
             check.append(row[col])
-        if check.count9check[0]) 
+        
+        if all_same(check):
+            print(f"Player {check[0]} is the winner vertically!(|)")
+            return True 
+    return False
         
 
 def game_board(game_map, player = 0, row = 0, column = 0, display = False):
@@ -57,20 +66,31 @@ def game_board(game_map, player = 0, row = 0, column = 0, display = False):
 play = True
 players = [1, 2]
 while play:
-    game = [[0, 0, 0],
-            [0, 0, 0],
-            [0, 0, 0]]
     
+    game_size = int(input("What size game of tic tac toe? "))
+    game = [[0 for i in range(game_size)] for i in range(game_size)]
     game_won = False
     game = game_board(game, display =True)
     player_choice = itertools.cycle([1, 2])
     while not game_won:
         current_player = next(player_choice)
-        column_choice = int(input("What column do you want to play? (0, 1, 2): "))
-        row_choice = int(input('What row do you want to play? (0, 1, 2): '))
-        game = game_board(game, current_player, row_choice, column_choice)
+        
+        while not played:
+            column_choice = int(input("What column do you want to play? (0, 1, 2): "))
+            row_choice = int(input('What row do you want to play? (0, 1, 2): '))
+            game, played = game_board(game, current_player, row_choice, column_choice)
 
-
+        if win(game):
+            game_won = True
+            again = input('That game is over, would you like to play again? (y/n) ')
+            if again.lower() == 'y':
+                print('restarting')
+            elif again.lower() == 'n':
+                print('Thankyou for playing!')
+                play = False
+            else:
+                print('That is not one of the options.')
+                play = False
 
 
 game = game_board(game, display = True)
