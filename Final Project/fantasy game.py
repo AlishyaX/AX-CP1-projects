@@ -6,11 +6,13 @@ inventory = []
 health = 25
 days = 7
 
+
+
 def safe_place():
     global days, health
     days -= .5
     health +=6
-    print('This is the place you can go to rest and reenergize\n')
+    print('This is the place you can go to rest and re energize\n')
     print('When you come here your health will go up 6 points and you will lose half a day.\n')
     print('You now have', health,'health points and', days,'days left.')
     choices()
@@ -20,13 +22,13 @@ def haunted_barn():
     days -=.5
     print('You found a haunted barn when you were walking around\nand decided to walk in. You start invetigating the barn as you see\ndust everwhere. Suddenly you saw this light colored smoke enter the barn.\n  ')
     print('From all of your training you already knew that it was called an ectoplasm.\n')
-    ectoplasm = input('You have two options:\n 1. Attack\n 2. Hide').lower()
-    if ectoplasm == 'attack':
-        print(' Since you couldn\'t see the ectoplasm it threw you all the way cross the barn\nand kicked you out of the barn, luckily sparing your life. ')
+    ectoplasm = input('You have two options:\n 1. Attack\n 2. Hide\n')
+    if ectoplasm == '1':
+        print('3Since you couldn\'t see the ectoplasm it threw you all the way cross the barn\nand kicked you out of the barn, luckily sparing your life. ')
         health -=5
         print('Even though the ectoplasm spared your life, you still lost 5 health')
 
-    elif ectoplasm == 'hide':
+    elif ectoplasm == '2':
         print('The ectoplasm couldn\'t find you and decided to leave')
         print('As you were leaving, you found a dusty old box.')
         print('You open the box and find a key that had the letters written d r a g o n carved into it. ')
@@ -101,17 +103,17 @@ def inventory_barn():
 
 
 def villages():
-    global name, health, days
+    global main_char, health, days
     print('As you were walking around you decided to go towards the villages.\n There was a huge group of villagers surrounding eachother as they were all discussing\nsomething. You decided to go up to them and talk to them about it.')
     print('You asked on one of the old men about what they were talking about.')
     time.sleep(2)
     print('Old man: Do you know about what has been happening lately?')
     time.sleep(2)
-    print(name,': Yes I have heard how people are going missing. Have you found out any other information?')
+    print(main_char,': Yes I have heard how people are going missing. Have you found out any other information?')
     time.sleep(2)
     print('Old man: Yesterday night we heard horrible noises and today when we all came out we saw these huge footprints \nof mud and it follows all the way to this dark cave that none have us have dared to go through.')
     time.sleep(2)
-    print(name,': I can\'t believe all of that happened but don\'t worry I will figure out how to fix it')
+    print(main_char,': I can\'t believe all of that happened but don\'t worry I will figure out how to fix it')
     time.sleep(2)
     days-=.5
     print('You now have',health,'health points and',days,'days left.')
@@ -126,11 +128,11 @@ def riddles_barn():
     time.sleep(1)
     print('As you walked through the creaky door you see this one safe that has the year 1993 on the top.')
     time.sleep(3)
-    print('As you go to open it you see on the small screen the riddle:\n I have no voice, but I can speak to you.\nI have no life, but I can teach you.\nI have no eyes, but I can show you the world.\n')
+    print('As you go to open it you see on the small screen the riddle:\nI have no voice, but I can speak to you.\nI have no life, but I can teach you.\nI have no eyes, but I can show you the world.\n')
     time.sleep(5)
     print('If you figure out what it is then you will be able to open the safe.')
     for i in range(10):
-        safe = input('What is the answer: ')
+        safe = input('What is the answer: ').lower()
         if safe == 'book' or safe == 'a book':
             print('That is correct')
             print('When you opened the safe you found this purple potion with a note that says use wisely!')
@@ -142,6 +144,8 @@ def riddles_barn():
                 else:
                     items.append('potion')
                     print('You have put the potion in your backpack.')
+                    print('Here is everything in your backpack:')
+                    print(items)
                     choices()
             else:
                 print('You left the riddles barn')
@@ -155,8 +159,8 @@ def riddles_barn():
             choices()
         else: 
             continue
-'''
 
+'''
 def dragon_cave():
 
 def witches_castle():
@@ -192,14 +196,15 @@ def choices():
         choices()
     
 def intro():
+    global main_char
     main_char = input('Welcome to this Fantasy/Adventure game!\nWhat is your name:\n')
-    
+
     start_mission = input('Are you ready to start your mission: (y/n) ')
     if start_mission == 'y':
         choices()
     else:
         breakpoint
-intro()
+
 
 
 
