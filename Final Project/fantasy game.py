@@ -1,7 +1,7 @@
 #Alishya Xavier, Final project
 global health, days
 items = []
-invetory = []
+inventory = []
 
 health = 25
 days = 7
@@ -48,8 +48,57 @@ def haunted_barn():
     print('You now have',health,'health points and',days,'days left.')
     choices()
 
+
+
 def inventory_barn():
-    
+    print('As you walk into the barn there are dusty shelves all around and it seems that it used to \n belong to someone as you find an item on the shelf. You walk over to it. ')
+    print('The item is a purple potion.')
+    potion = input('Do you want to put the potion in your backpack(y/n): ')
+    if potion == 'y':
+        if len(items) == 5:
+            print('Your backpack is full')
+        else:
+            items.append('potion')
+            print('Here are all of the items you have in your backpack:')
+            print(items)
+    else:
+        print('You left the potion there.')
+    inventory_switch = input('Do you want to put any items in your backpack in your inventory(y/n):')
+    if inventory_switch == 'y':
+        print('These are all of the items you have in your backpack')
+        print(items)
+        switch = input('Which item would you like to put in your inventory:')
+        if switch in items:
+            print('This item is now in your inventory')
+            inventory.append(switch)
+        else:
+            print('You don\'t have that item in your backpack')
+    else:
+        print('These are the things in your backpack:')
+        print(items)
+    inventory_place = input('Do you want to place anything in your backpack form your inventory(y/n): ')
+    if inventory_place == 'y':
+        print('These are all of the items in your inventory: ')
+        print(inventory)
+        place = input('Which item in your inventory would you like to put in your backpack? ')
+        if len(items) == 5:
+            print('You don\'t have nay space to put it in your backpack')
+        else:
+            if place in inventory:
+                print('This item is now in your backpack')
+                items.append(place)
+            else:
+                print('That item is not in your inventory.')
+    else:
+        print('These are all of the things in your inventory: ')
+        print(inventory)
+    days -=.5
+    print('You now have',health,'health points and',days,'days left.')
+    choices()
+
+
+
+
 
 def villages():
 
