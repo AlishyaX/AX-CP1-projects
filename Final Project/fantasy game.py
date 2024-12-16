@@ -160,15 +160,51 @@ def riddles_barn():
         else: 
             continue
 
-'''
+
 def dragon_cave():
+    print('Here are all of the items you have in your backpack:')
+    print(items)
+    if 'bow and arrow' in items:
+        print('You have the required item that can be used during battle.')
+    else:
+        print('You don\'t have the required item.' )
+    dragon_battle = input('Do you want to start the battle(y/n):')
+    if dragon_battle == 'y':
+        print('You decided to take a look at the mud footprints that followed all the way into this huge dark cave.')
+        time.sleep(5)
+        print('You see this bright red light coming out from inside every few seconds. ')
+        time.sleep(4)
+        print('You have already figured out that it is a dragon.')
+        time.sleep(5)
+        print('You quietly start to enter the cave as the snoring you were once hearing stopped.')
+        time.sleep(4)
+        print('It is too late to turn back so you just creep in very quietly.')
+        time.sleep(4)
+        print('When you peep the corner you see that the dragon is sleeping right in front of this big metal cage.')
+        time.sleep(5)
+        print('You also see that there is a broken chain from the dragons ankle and the wall.')
+        time.sleep(5)
+        print('When you try to peep again suddenly the dragon is gone!')
+        time.sleep(9)
+        print('Suddenly you feel this hot breath coming right on top of you.')
+        time.sleep(6)
+        dragon_choice_1 = input('What do you do? \n1. run\n2.play dead\n3. scream to scare it off\n')
+        if dragon_choice_1 == '1':
+            print('You ran to the opposite side as the dragon bursts fire throughout the cave')
+            time.sleep(7)
+            print('You found this small hole in the cave wall hidden by the other side of the cave.')
+        elif dragon_choice_1 == '2':
+            print('The dragon already knew that you were alive and didn\'t let you ')
+    else:
+        choices()
+    
 
 def witches_castle():
 
 def forest():
 
 def tarton_sea():
-'''
+
 
 def choices():
     print('Here are all of the options for the places you can go:\n 1. The safe place\n 2. The haunted barn\n 3. The inventory barn\n 4. The villages\n 5. The riddles barn\n 6. The dragon cave\n 7. The witches castle\n 8. The forest\n 9. The Tarton Sea')
@@ -204,7 +240,7 @@ def intro():
         choices()
     else:
         breakpoint
-
+intro()
 
 
 
