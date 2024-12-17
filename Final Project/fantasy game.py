@@ -173,7 +173,7 @@ def riddles_barn():
 
 
 def dragon_cave():
-    global life, days
+    global life, days, medals
     days -=1
     print('Here are all of the items you have in your backpack:')
     print(items)
@@ -252,6 +252,8 @@ def dragon_cave():
                 conclude()
             print('While the dragon was sleeping you shot an arrow right at his heart as it instantly dies.')
             time.sleep(6)
+            medals +=1
+            print('You have recieved a medal and you only need 4 to complete the mission.')
             print('When you opened the cage you saw this beautiful conch with a note that says \n"use this when you are reday Serene, I love you"')
             conch = input('Do you want to put the conch in your backpack(y/n): ')
             if conch == 'y':
@@ -269,14 +271,15 @@ def dragon_cave():
             conclude()
     else:
         conclude()
-'''
+
 def witches_castle():
+    print('')
 
 def forest():
 
 def tarton_sea():
 
-'''
+
 
 #This is the function that I keep running for the main_char to pick which place they want to go to 
 def choices():
