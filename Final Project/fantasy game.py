@@ -517,15 +517,17 @@ def choices():
 def intro():
     global main_char
     main_char = input('Welcome to this Fantasy/Adventure game!\nWhat is your name:\n')
-    time.sleep(4)
-    print('So far', main_char,' has been training ever since he/she was a kid to be able to complete the hardest challenge of their lifetime. ')
+    print('So far', main_char,'has been training ever since he/she was a kid to be able to complete the hardest challenge of their lifetime. ')
     time.sleep(7)
     print('If you do complete the mission then you will be praised and have the honor of being an official armender.')
     start_mission = input('Are you ready to start your mission: (y/n) ')
     if start_mission == 'y':
         print('For your mission you will be sent to Aruna islands in a private jet.')
         time.sleep(6)
-        print('It seems that people have been going missing and at this rate everyone on that island will be gone\nin 7 days. ')
+        print('It seems that people have been going missing and at this rate everyone on that island will be gone in 7 days. ')
+        print('So in the end you will need to find the root cause of why people are going missing and fix it.')
+        time.sleep(9)
+        print('You have now reached The Aruna Islands!')
         conclude()
     else:
         breakpoint
