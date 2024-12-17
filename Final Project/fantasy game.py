@@ -5,8 +5,22 @@ inventory = []
 
 health = 25
 days = 7
+life = 4
+medals = 0
 
-
+#This function I run evertime to see if the main_char has won the game yet or lost the game yet
+def conclude():
+    if medals == 4 and life > 0 and days >=0 and health >=0:
+        print('You have completed the mission')
+        time.sleep(4)
+        print('Congradulations! Your name will be forever remembered in the legacy!')
+    elif life == 0 and health == 0:
+        print('You have failed the mission because you died.')
+    elif days == 0:
+        print('You failed the mission because you ran out of time and everyone went missing so you were the last one.')
+        
+    else:
+        choices()
 
 def safe_place():
     global days, health
@@ -15,7 +29,7 @@ def safe_place():
     print('This is the place you can go to rest and re energize\n')
     print('When you come here your health will go up 6 points and you will lose half a day.\n')
     print('You now have', health,'health points and', days,'days left.')
-    choices()
+    conclude()
 
 def haunted_barn():
     global days, health
@@ -50,8 +64,7 @@ def haunted_barn():
         print('That is not one of the options.')
         haunted_barn()
     print('You now have',health,'health points and',days,'days left.')
-    choices()
-
+    conclude()
 
 
 def inventory_barn():
@@ -99,8 +112,7 @@ def inventory_barn():
         print(inventory)
     days -=.5
     print('You now have',health,'health points and',days,'days left.')
-    choices()
-
+    conclude()
 
 def villages():
     global main_char, health, days
@@ -117,11 +129,10 @@ def villages():
     time.sleep(2)
     days-=.5
     print('You now have',health,'health points and',days,'days left.')
-    choices()
-
+    conclude()
 
 def riddles_barn():
-    global days, health
+    global days, health,i
     days -=.5
     print('You now have',health,'health points and',days,'days left.')
     print('You walked around and found another abandoned barn.')
@@ -131,7 +142,7 @@ def riddles_barn():
     print('As you go to open it you see on the small screen the riddle:\nI have no voice, but I can speak to you.\nI have no life, but I can teach you.\nI have no eyes, but I can show you the world.\n')
     time.sleep(5)
     print('If you figure out what it is then you will be able to open the safe.')
-    for i in range(10):
+    for i in range(9):
         safe = input('What is the answer: ').lower()
         if safe == 'book' or safe == 'a book':
             print('That is correct')
@@ -140,28 +151,30 @@ def riddles_barn():
             if potion == 'y':
                 if len(items) == 5:
                     print('You don\'t have any space in your backpack.')
-                    choices()
+                    conclude()
                 else:
                     items.append('potion')
                     print('You have put the potion in your backpack.')
                     print('Here is everything in your backpack:')
                     print(items)
-                    choices()
+                    conclude()
             else:
                 print('You left the riddles barn')
-                choices()
+                conclude()
         else:
             print('That is incorrect')
             print('This is your ',i+1,' attempt and you only have 9 attempts before it completly locks you out')
-            continue
-        if i =='9':
-            print('You ran out of times you could try.')
-            choices()
-        else: 
-            continue
+            if i == 8:
+                print('You ran out of times you could try.')
+                conclude()
+            else: 
+                continue
+        
 
 
 def dragon_cave():
+    global life, days
+    days -=1
     print('Here are all of the items you have in your backpack:')
     print(items)
     if 'bow and arrow' in items:
@@ -194,18 +207,78 @@ def dragon_cave():
             time.sleep(7)
             print('You found this small hole in the cave wall hidden by the other side of the cave.')
         elif dragon_choice_1 == '2':
-            print('The dragon already knew that you were alive and didn\'t let you ')
+            print('The dragon already knew that you were alive and didn\'t let you leave.')
+            life =-1
+            print('You lost one of your lifes and have been respawned.')
+            print('You now have',life,' lives left.')
+            conclude()
+        elif dragon_choice_1 == '3':
+            print('The dragon got intimidated and decided to breath fire to you!')
+            life -= 1
+            print('You lost one of your lifes and have been respawned.')
+            print('You now have',life,' lives left.')
+            conclude()
+        else:
+            print('That is not one of the options.')
+            dragon_cave()
+        print('That dragon looked everywhere for you but couldn\'t find you so decided to go back to sleeping.')
+        time.sleep(6)
+        dragon_d = input('What do you want to do:\n1. Leave\n2. Try to sneak around the dragon to go look at the cage\n3. Get an item from your backpack')
+        if dragon_d == '1':
+            print('While you were trying to sneak out the dragon caught you and breathed out fire before you could escape.')
+            time.sleep(6)
+            life -=1
+            print('You lost one of your lifes and have been respawned.')
+            print('You now have',life,' lives left.')
+            conclude()
+        elif dragon_d == '2':
+            print('While you were sneaking around the dragon woke up and breathed fire onto you!')
+            time.sleep(6)
+            life -=1
+            print('You lost one of your lifes and have been respawned.')
+            print('You now have',life,' lives left.')
+            conclude()
+        elif dragon_d == '3':
+            print('Here are the items in your backpack',items)
+            i_g = input('Which item do you wat to take out of your backpack: ')
+            if i_g == 'bow and arrow':
+                print('You took the bow and arrow and snuck back to the cave wall hidden from the dragon.')
+            else:
+                print('You tried to use the item but it didn\'t work on the dragon and it ended up breathing fire on you')
+                time.sleep(6)
+                life -=1
+                print('You lost one of your lifes and have been respawned.')
+                print('You now have',life,' lives left.')
+                conclude()
+            print('While the dragon was sleeping you shot an arrow right at his heart as it instantly dies.')
+            time.sleep(6)
+            print('When you opened the cage you saw this beautiful conch with a note that says \n"use this when you are reday Serene, I love you"')
+            conch = input('Do you want to put the conch in your backpack(y/n): ')
+            if conch == 'y':
+                if len(items) == 5:
+                    print('You don\'t have enough space in your backpack.')
+                    conclude()
+                else:
+                    items.append('conch')
+                    print('This is what is in your backpack:')
+                    print(items)
+            else:
+                print('You left the cave')
+                conclude()
+            print('After you were done, you left the cave.')
+            conclude()
     else:
-        choices()
-    
-
+        conclude()
+'''
 def witches_castle():
 
 def forest():
 
 def tarton_sea():
 
+'''
 
+#This is the function that I keep running for the main_char to pick which place they want to go to 
 def choices():
     print('Here are all of the options for the places you can go:\n 1. The safe place\n 2. The haunted barn\n 3. The inventory barn\n 4. The villages\n 5. The riddles barn\n 6. The dragon cave\n 7. The witches castle\n 8. The forest\n 9. The Tarton Sea')
     go = input('Where do you want to go: ')
@@ -230,14 +303,15 @@ def choices():
     else:
         print('That was not one of the options')
         choices()
-    
+
+# This is the introduction function that calls other functions that call others.    
 def intro():
     global main_char
     main_char = input('Welcome to this Fantasy/Adventure game!\nWhat is your name:\n')
 
     start_mission = input('Are you ready to start your mission: (y/n) ')
     if start_mission == 'y':
-        choices()
+        conclude()
     else:
         breakpoint
 intro()
